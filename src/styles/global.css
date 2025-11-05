@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
-@theme {
-  --font-lora: var(--font-lora);
+@theme inline {
+  --font-title: var(--font-urbanist);
+  --font-body: var(--font-aeonik);
 }

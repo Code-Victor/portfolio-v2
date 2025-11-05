@@ -3,7 +3,7 @@
 // all pages through the use of the <BaseHead /> component.
 import "../styles/global.css";
 import { SITE_TITLE } from "../consts";
-import FallbackImage from "../assets/og-image.png";
+import FallbackImage from "@/assets/images/og-image.png";
 import type { ImageMetadata } from "astro";
 import { Font } from "astro:assets";
 
@@ -31,7 +31,8 @@ const { title, description, image = FallbackImage } = Astro.props;
 />
 <meta name="generator" content={Astro.generator} />
 
-<Font cssVariable="--font-lora" preload />
+<Font cssVariable="--font-aeonik" preload />
+<Font cssVariable="--font-urbanist" preload />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
