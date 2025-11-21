@@ -1,8 +1,11 @@
 ---
-import Avatar from "../components/Avatar.astro";
-import Texture from "../components/Texture.astro";
-import BaseHead from "../components/BaseHead.astro";
+import Avatar from "../components/avatar.astro";
+import Texture from "../components/texture.astro";
+import BaseHead from "../components/base-head.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { Navbar } from "@/components/navbar";
+import Hero from "@/components/hero.astro";
+import RecentWorks from "@/components/recent-works.astro";
 ---
 
 <!doctype html>
@@ -10,29 +13,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body
-    class="dark font-body bg-[#161616] h-screen font-urbanist flex items-center justify-center"
-  >
-    <div class="flex flex-col justify-center gap-2 text-center">
-      <Avatar />
-      <h1 class="text-5xl font-medium text-[#ECEDEE]">Hamzat Victor</h1>
-      <p class="text-base italic text-[#787f85]">
-        Self-taught design engineer passionate about creating world class user
-        experiences.
-      </p>
-    </div>
-    <Texture />
+  <body class="font-body bg-background text-foreground relative min-h-screen">
+    <Navbar client:load />
+    <Hero />
+    <RecentWorks />
+    <div class="h-screen"></div>
+    <div class="h-screen"></div>
+    <div class="h-screen"></div>
+    <!-- <Texture /> -->
   </body>
 </html>
-<script>
-  import { PowerGlitch } from "powerglitch";
-  const heading = document.querySelector("div");
-  if (!heading) {
-    throw new Error("Heading element not found");
-  }
-  PowerGlitch.glitch(heading, {
-    timing: {
-      duration: 4000,
-    },
-  });
-</script>

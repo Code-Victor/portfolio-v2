@@ -1,0 +1,102 @@
+---
+import Button from "./button.astro";
+
+const socialLinks = [
+  {
+    name: "GitHub",
+    href: "",
+  },
+  {
+    name: "LinkedIn",
+    href: "",
+  },
+  {
+    name: "X(Twitter)",
+    href: "",
+  },
+];
+---
+
+<section class="my-container pt-4 pb-16">
+  <div class="grid grid-cols-3 gap-6">
+    <div class="space-y-10 md:col-span-2">
+      <h1
+        class="font-title relative max-w-[720px] text-6xl leading-[1.1] font-medium"
+      >
+        I build full-stack solutions with style and precision.
+        <svg
+          class="absolute right-0 -bottom-4 translate-y-1/2"
+          xmlns="http://www.w3.org/2000/svg"
+          width="241"
+          height="84"
+          fill="none"
+          viewBox="0 0 241 84"
+        >
+          <path
+            stroke="#e4e7ec"
+            stroke-opacity=".7"
+            stroke-width="5"
+            d="M1.622 79.677c77.687-66.216 97.047-30.28 97.016-4.035 61.672-85.64 108.527-31.67 124.245 6.02-10.346-40.68 6.581-70.208 16.338-79.887"
+          >
+          </path>
+        </svg>
+      </h1>
+
+      <Button size="lg">
+        <span>victor@hamz.at</span>
+        <svg
+          slot="icon-after"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="none"
+          viewBox="0 0 20 20"
+          ><path
+            stroke="#090909"
+            stroke-linejoin="round"
+            stroke-width="1.25"
+            d="m1.667 5 5.76 3.264c2.124 1.204 3.022 1.204 5.146 0L18.333 5"
+          ></path><path
+            stroke="#090909"
+            stroke-linejoin="round"
+            stroke-width="1.25"
+            d="M1.68 11.23c.054 2.554.081 3.832 1.024 4.778s2.255.979 4.878 1.045c1.617.04 3.218.04 4.836 0 2.623-.066 3.935-.099 4.878-1.045.942-.946.97-2.224 1.024-4.778.018-.822.018-1.638 0-2.46-.054-2.554-.082-3.832-1.024-4.778s-2.255-.979-4.878-1.045a96 96 0 0 0-4.836 0c-2.623.066-3.935.099-4.878 1.045S1.734 6.216 1.68 8.77a58 58 0 0 0 0 2.46Z"
+          ></path></svg
+        >
+      </Button>
+    </div>
+    <div class="space-y-7">
+      <p class="text-muted-foreground text-lg">
+        I build complete web applications—from responsive frontends to robust
+        backends. What began as a hobby grew into a passion for creating clean,
+        scalable software that simplifies life for users and teams
+      </p>
+      <div class="flex gap-4">
+        {
+          socialLinks.map((link) => (
+            <a
+              href={link.href}
+              class="group text-muted-foreground hover:text-foreground relative flex items-center gap-1 py-1 text-2xl transition-colors before:absolute before:bottom-0 before:left-0 before:h-px before:w-full before:origin-right before:scale-x-0 before:rounded before:bg-current before:transition-transform before:duration-300 before:ease-in-out hover:before:origin-left hover:before:scale-x-100"
+            >
+              <span>{link.name}</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="33"
+                height="33"
+                fill="none"
+                viewBox="0 0 33 33"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m23.32 12.392-13.856 8M21.49 19.222s2.49-5.689 1.83-6.83c-.658-1.14-6.83-1.83-6.83-1.83"
+                />
+              </svg>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
