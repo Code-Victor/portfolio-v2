@@ -1,11 +1,21 @@
 ---
-import Avatar from "../components/avatar.astro";
-import Texture from "../components/texture.astro";
-import BaseHead from "../components/base-head.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import { Navbar } from "@/components/navbar";
+import AvatarImage from "@/assets/images/avatar.png";
 import Hero from "@/components/hero.astro";
+import { Navbar } from "@/components/navbar";
 import RecentWorks from "@/components/recent-works.astro";
+import BaseHead from "../components/base-head.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import ProgressiveBlur from "@/components/progressive-blur.astro";
+import { getImage } from "astro:assets";
+import Texture from "@/components/texture.astro";
+import Journey from "@/components/journey.astro";
+
+const optimizedAvatar = await getImage({
+  src: AvatarImage,
+  width: 128,
+  height: 128,
+});
+optimizedAvatar;
 ---
 
 <!doctype html>
@@ -14,12 +24,14 @@ import RecentWorks from "@/components/recent-works.astro";
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body class="font-body bg-background text-foreground relative min-h-screen">
-    <Navbar client:load />
+    <Navbar avatar={optimizedAvatar} client:load />
     <Hero />
     <RecentWorks />
+    <Journey />
     <div class="h-screen"></div>
     <div class="h-screen"></div>
     <div class="h-screen"></div>
-    <!-- <Texture /> -->
+    <ProgressiveBlur />
+    <Texture />
   </body>
 </html>

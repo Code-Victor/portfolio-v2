@@ -1,0 +1,53 @@
+---
+import ScatteredCards from "./scattered-cards";
+---
+
+<section class="min-h-screen py-11">
+  <div class="my-container">
+    <div class="grid place-items-center">
+      <div class="font-title flex flex-col items-end">
+        <p class="text-muted-foreground text-xl">...Story time</p>
+        <h2 class="mb-16 text-6xl font-semibold">My Journey</h2>
+      </div>
+    </div>
+  </div>
+  <div class="my-container grid grid-cols-5 gap-6">
+    <div class="bg-secondary col-span-2 rounded-3xl p-6">
+      <p>
+        Starting my journey in web development back in 2020, I was immediately
+        captivated by the endless possibilities it offered. The ability to
+        create interactive and dynamic experiences on the web fascinated me, and
+        I knew I wanted to be a part of this ever-evolving field.
+      </p>
+      <br />
+      <p>
+        Hey, I’m Victor — a full-stack developer from Nigeria. I grew up in
+        Benin City, where I first got hooked on tech through late-night
+        cybercafé sessions and endless Googling. What started as curiosity
+        quickly turned into passion. After moving to Lagos, I
+      </p>
+    </div>
+    <div
+      class="bg-deeper-background border-secondary col-span-3 rounded-3xl border-[0.5px]"
+    >
+      <ScatteredCards client:load />
+    </div>
+    <div
+      class="bg-deeper-background border-secondary col-span-3 rounded-3xl border-[0.5px] p-6"
+    >
+    </div>
+    <div class="bg-secondary col-span-2 rounded-3xl p-6">
+      <p>
+        Over time, I’ve mastered languages like JavaScript, TypeScript, Python,
+        and PHP — tools that power everything I build, from interactive
+        frontends to scalable backend systems. Each project has sharpened my
+        ability to write clean, efficient code and think critically about how
+        tech can solve real-world problems.
+      </p>
+    </div>
+    <div
+      class="bg-deeper-background border-secondary col-span-5 rounded-3xl border-[0.5px] p-6"
+    >
+    </div>
+  </div>
+</section>

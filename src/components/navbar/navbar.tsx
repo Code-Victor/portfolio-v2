@@ -1,7 +1,7 @@
-import AvatarImage from "@/assets/images/avatar.png";
 import { cn } from "@/lib/utils";
-import { inView, type Variants } from "motion";
-import { motion, AnimatePresence, useInView } from "motion/react";
+import type { GetImageResult } from "astro";
+import { type Variants } from "motion";
+import { AnimatePresence, motion, useInView } from "motion/react";
 import * as React from "react";
 
 type NavButtonProps = {
@@ -129,7 +129,7 @@ const variants: Variants = {
   },
   visible: { opacity: 1, filter: "blur(0px)" },
 };
-export default function Navbar() {
+export default function Navbar({ avatar }: { avatar: GetImageResult }) {
   const spacerRef = React.useRef<React.ComponentRef<"div">>(null);
   const isNavSticky = !useInView(spacerRef, {
     initial: true,
@@ -141,7 +141,7 @@ export default function Navbar() {
       <motion.nav
         layout
         className={cn(
-          "my-container sticky top-0 flex py-6",
+          "my-container sticky top-0 z-40 flex py-6",
           isNavSticky
             ? "max-w-[110rem]! justify-between px-0"
             : "justify-start gap-8",
@@ -162,7 +162,7 @@ export default function Navbar() {
           </AnimatePresence>{" "}
           <motion.img
             layout
-            src={AvatarImage.src}
+            src={avatar.src}
             alt="Hamzat Victor"
             className="avatar inline size-11 rounded-xl"
             id="nav-avatar"

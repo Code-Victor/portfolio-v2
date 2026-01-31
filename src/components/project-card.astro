@@ -1,0 +1,92 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  tags?: Array<{ name: string; icon?: string }>;
+  image?: string;
+  link?: string;
+  logo?: string;
+}
+
+const {
+  title = "Project Name",
+  description = "Lorem ipsum dolor sit amet consectetur. Cursus ut a tincidunt eget. Viverra vel sed tortor non elementum blandit et nulla vitae. Sit euismod tellus mattis imperdiet donec. Volutpat eget posuere risus egestas dolor sed lorem duis ut.",
+  tags = [
+    { name: "Python", icon: "🐍" },
+    { name: "Java", icon: "☕" },
+    { name: "Javascript", icon: "⚡" },
+  ],
+  image,
+  link = "#",
+  logo,
+} = Astro.props;
+---
+
+<article
+  class="group bg-background z-0 rounded-4xl border border-[#2A2A2A] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+>
+  <a href={link} class="block text-inherit no-underline">
+    <div class="mb-6 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <div class="h-14 w-14 flex-shrink-0 overflow-hidden rounded-full">
+          {
+            logo ? (
+              <img
+                src={logo}
+                alt={`${title} logo`}
+                class="h-full w-full object-cover"
+              />
+            ) : (
+              <div class="h-full w-full bg-gradient-to-br from-purple-500 via-violet-600 to-indigo-600" />
+            )
+          }
+        </div>
+        <h3 class="font-title text-foreground text-4xl font-semibold">
+          {title}
+        </h3>
+      </div>
+      <div
+        class="text-foreground transition-transform duration-300 group-hover:translate-x-2"
+      >
+        <svg
+          width="64"
+          height="64"
+          viewBox="0 0 64 64"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M53.3336 31.9995H10.667"
+            stroke="white"
+            stroke-width="6"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <path
+            d="M40.0008 45.3334C40.0008 45.3334 53.3338 35.5136 53.3338 32C53.3338 28.4864 40.0005 18.6667 40.0005 18.6667"
+            stroke="white"
+            stroke-width="6"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+      </div>
+    </div>
+
+    <p class="text-muted-foreground mb-6 text-base leading-relaxed">
+      {description}
+    </p>
+
+    <div class="mb-8 flex flex-wrap gap-3">
+      {
+        tags.map((tag) => (
+          <span class="bg-secondary text-foreground inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium">
+            {tag.icon && <span class="text-base">{tag.icon}</span>}
+            <span>{tag.name}</span>
+          </span>
+        ))
+      }
+    </div>
+
+    <div class="aspect-[3/1] w-full overflow-hidden rounded-lg bg-gray-50">
+    </div>
+  </a>
+</article>

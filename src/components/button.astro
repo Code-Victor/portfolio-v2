@@ -54,7 +54,7 @@ export const buttonVariants = cva(
       size: "md",
       rounded: "full",
     },
-  }
+  },
 );
 
 type Props<Tag extends HTMLTag = "button"> = Polymorphic<{
@@ -80,7 +80,7 @@ const className = cn(
     rounded,
     icon,
     class: classProp,
-  })
+  }),
 );
 ---
 
@@ -90,7 +90,7 @@ const className = cn(
   <slot name="icon-after" />
 </Tag>
 
-<style is:inline>
+<style>
   svg {
     height: var(--icon-size);
     width: var(--icon-size);
